@@ -77,7 +77,7 @@ const config = (async (): Promise<Config> => {
       tagline_2: 'Deploy them anywhere.',
     },
     future: {
-      experimental_faster: true,
+      faster: true,
       v4: true,
     },
     url: siteBaseUrl(),
@@ -87,7 +87,6 @@ const config = (async (): Promise<Config> => {
     // versions become unresolvable, so downgrade to warn for this build path
     // only. The production build keeps the throw behavior.
     onBrokenLinks: offlineBuild ? 'warn' : 'throw',
-    onBrokenMarkdownLinks: 'warn',
     favicon: '/favicon.ico',
 
     // Even if you don't use internalization, you can use this field to set useful
@@ -491,6 +490,9 @@ const config = (async (): Promise<Config> => {
         admonitions: false,
         comments: false,
         headingIds: false,
+      },
+      hooks: {
+        onBrokenMarkdownLinks: 'warn',
       },
     },
 
